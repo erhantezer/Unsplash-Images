@@ -29,10 +29,18 @@ function App() {
     fetchPhotos()
   }, []);
 
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  }
+
+
   return (
     <main>
       <section className="search">
-        <form className="search-form">
+        <form className="search-form" onSubmit={handleSubmit}>
           <input 
           type="text" 
           placeholder="search"
@@ -40,6 +48,9 @@ function App() {
           onClick={(e) => setSearch(e.target.value)}
           className="form-input"
           />
+          <button type="submit" className="">
+            <FaSearch/>
+          </button>
         </form>
       </section>
     </main>
