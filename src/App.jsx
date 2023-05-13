@@ -33,9 +33,12 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
   }
 
+  if(loading) {
+    return <div style={{textAlign:"center"}}>Loading...</div>
+  }
 
   return (
     <main>
@@ -48,10 +51,15 @@ function App() {
           onClick={(e) => setSearch(e.target.value)}
           className="form-input"
           />
-          <button type="submit" className="">
-            <FaSearch/>
+          <button type="submit" className="submit-btn">
+            Search <FaSearch/>
           </button>
         </form>
+      </section>
+      <section className="photos">
+        <div className="photos-center">
+
+        </div>
       </section>
     </main>
   )
