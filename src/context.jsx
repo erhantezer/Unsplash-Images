@@ -59,7 +59,7 @@ export const AppProvider = ({ children }) => {
 
 
     return (
-        <AppContext value={{
+        <AppContext.Provider value={{
             query,
             setQuery,
             loading,
@@ -71,6 +71,6 @@ export const AppProvider = ({ children }) => {
             page
         }}>
             {children}
-        </AppContext>
+        </AppContext.Provider>
     )
 }

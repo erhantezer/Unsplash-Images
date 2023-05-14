@@ -5,7 +5,17 @@ import { useGlobalContext } from './context';
 
 
 function App() {
-  const {loading, query, setQuery} = useGlobalContext()
+  const {
+    query,
+    setQuery,
+    loading,
+    newImages,
+    setNewImages,
+    photos,
+    setPhotos,
+    setPage,
+    page
+  } = useGlobalContext()
 
 
 
@@ -28,7 +38,7 @@ function App() {
           type="text" 
           placeholder="search"
           value={query}
-          onClick={(e) => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)}
           className="form-input"
           />
           <button type="submit" className="submit-btn">
