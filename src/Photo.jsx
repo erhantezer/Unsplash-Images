@@ -8,6 +8,7 @@ user: {
     name,
     portfolio_url,
     profile_image: { medium },
+    location
 },
 
 }) => {
@@ -18,6 +19,10 @@ user: {
                 <div>
                     <h4>{name}</h4>
                     <p>{likes} likes</p>
+                    
+                </div>
+                <div>
+                    <p><p>{location}</p></p>
                 </div>
                 <a href={portfolio_url}>
                     <img src={medium} alt='' className='user-img' />
