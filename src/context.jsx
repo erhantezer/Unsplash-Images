@@ -28,6 +28,7 @@ export const AppProvider = ({ children }) => {
         } else {
             url = `${mainUrl}${clientID}${urlPage}`
         }
+        console.log(url)
         try {
             const res = await fetch(url);
             const data = await res.json();

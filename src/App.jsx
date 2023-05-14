@@ -1,6 +1,8 @@
 
 import { FaSearch } from 'react-icons/fa';
 import { useGlobalContext } from './context';
+import { useEffect, useRef } from 'react';
+import Photo from './Photo';
 
 
 
@@ -16,18 +18,24 @@ function App() {
     setPage,
     page
   } = useGlobalContext()
+  const mounted = useRef(false);
 
 
+  useEffect(() => {
+    
+  }, [newImages]);
 
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    fetchImages();
   }
 
   if(loading) {
-    return <div style={{textAlign:"center"}}>Loading...</div>
+    return <div style={{textAlign:"center"}}>
+      <h1 className='loading'>Loading...</h1>
+      </div>
   }
 
   return (
@@ -42,13 +50,15 @@ function App() {
           className="form-input"
           />
           <button type="submit" className="submit-btn">
-            Search <FaSearch/>
+            <FaSearch/>
           </button>
         </form>
       </section>
       <section className="photos">
         <div className="photos-center">
-
+          {photos.map((image, index) => {
+            return <Photo key={index} {...image}/>
+          })}
         </div>
       </section>
     </main>
