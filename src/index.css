@@ -182,6 +182,10 @@ Stock Photos
     border-bottom: 3px solid var(--clr-grey-5);
 }
 
+.submit-btn {
+    cursor: pointer;
+}
+
 .form-input {
     color: var(--clr-grey-3);
 }

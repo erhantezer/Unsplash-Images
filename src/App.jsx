@@ -16,20 +16,42 @@ function App() {
     photos,
     setPhotos,
     setPage,
-    page
+    page,
+    fetchPhotos
   } = useGlobalContext()
   const mounted = useRef(false);
 
 
   useEffect(() => {
-    
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    if (!newImages) return;
+    if (loading) return;
+    setPage((oldPage) => oldPage + 1);
   }, [newImages]);
 
+
+  const event = () => {
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+      setNewImages(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', event);
+    return () => window.removeEventListener('scroll', event);
+  }, []);
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchImages();
+    if (!query) return;
+    if (page === 1) {
+      fetchPhotos();
+    }
+    setPage(1);
   }
 
   if(loading) {

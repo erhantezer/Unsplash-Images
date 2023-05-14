@@ -69,7 +69,8 @@ export const AppProvider = ({ children }) => {
             photos,
             setPhotos,
             setPage,
-            page
+            page,
+            fetchPhotos
         }}>
             {children}
         </AppContext.Provider>
