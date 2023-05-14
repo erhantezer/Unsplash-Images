@@ -47,7 +47,14 @@ export const AppProvider = ({children}) => {
 
 
     return (
-        <AppContext value={{}}>
+        <AppContext value={{ 
+        query, 
+        setQuery, 
+        loading, 
+        newImages, 
+        setNewImages, 
+        photos 
+        }}>
             {children}
         </AppContext>
         )
