@@ -11,12 +11,12 @@ const clientID = `?client_id=-WsG44wZbP_-YsLll3ho70imGuxqUSGtc2kbBajE7Bc`;
 const mainUrl = `https://api.unsplash.com/photos/`;
 const searchUrl = `https://api.unsplash.com/search/photos/`;
 
-export const AppProvider = ({children}) => {
+export const AppProvider = ({ children }) => {
     const [query, setQuery] = useState("");
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [newImages, setNewImages] = useState(false);
-    const [photos, setPhotos] = useState([]); 
+    const [photos, setPhotos] = useState([]);
 
     const fetchPhotos = async () => {
         setLoading(true)
@@ -59,15 +59,18 @@ export const AppProvider = ({children}) => {
 
 
     return (
-        <AppContext value={{ 
-        query, 
-        setQuery, 
-        loading, 
-        newImages, 
-        setNewImages, 
-        photos 
+        <AppContext value={{
+            query,
+            setQuery,
+            loading,
+            newImages,
+            setNewImages,
+            photos,
+            setPhotos,
+            setPage,
+            page
         }}>
             {children}
         </AppContext>
-        )
+    )
 }
