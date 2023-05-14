@@ -27,8 +27,6 @@ function App() {
       mounted.current = true;
       return;
     }
-    if (!newImages) return;
-    if (loading) return;
     setPage((oldPage) => oldPage + 1);
   }, [newImages]);
 
