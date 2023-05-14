@@ -5,7 +5,7 @@ import { useGlobalContext } from './context';
 
 
 function App() {
-  const {loading, search, setSearch} = useGlobalContext()
+  const {loading, query, setQuery} = useGlobalContext()
 
 
 
@@ -27,8 +27,8 @@ function App() {
           <input 
           type="text" 
           placeholder="search"
-          value={search}
-          onClick={(e) => setSearch(e.target.value)}
+          value={query}
+          onClick={(e) => setQuery(e.target.value)}
           className="form-input"
           />
           <button type="submit" className="submit-btn">
