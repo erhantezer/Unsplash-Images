@@ -15,7 +15,7 @@ export const AppProvider = ({children}) => {
     const [query, setQuery] = useState("");
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
-    const [newImages, setNewImages] = useState([]);
+    const [newImages, setNewImages] = useState(false);
     const [photos, setPhotos] = useState([]); 
 
     const fetchPhotos = async () => {
@@ -31,11 +31,23 @@ export const AppProvider = ({children}) => {
         try {
             const res = await fetch(url);
             const data = await res.json();
-            setPhotos(data)
+            setPhotos((oldPhotos) => {
+                if (query && page === 1) {
+                    return data.results;
+                } else if (query) {
+                    return [...oldPhotos, ...data.results];
+                } else {
+                    return [...oldPhotos, ...data];
+                }
+            });
             console.log(data)
+            setNewImages(false);
             setLoading(false);
         } catch (error) {
             console.log(error)
+            setNewImages(false);
+
+            setLoading(false);
         }
     }
 
@@ -43,7 +55,7 @@ export const AppProvider = ({children}) => {
     useEffect(() => {
 
         fetchPhotos()
-    }, []);
+    }, [page]);
 
 
     return (
