@@ -22,7 +22,7 @@ user: {
                     
                 </div>
                 <div>
-                    <p><p>{location}</p></p>
+                    <p>{location}</p>
                 </div>
                 <a href={portfolio_url}>
                     <img src={medium} alt='' className='user-img' />

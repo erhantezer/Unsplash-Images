@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
     const [query, setQuery] = useState("");
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
-    const [newImages, setNewImages] = useState(false);
+    // const [newImages, setNewImages] = useState(false);
     const [photos, setPhotos] = useState([]);
 
     const fetchPhotos = async () => {
@@ -42,11 +42,11 @@ export const AppProvider = ({ children }) => {
                 }
             });
             console.log(data)
-            setNewImages(false);
+            // setNewImages(false);
             setLoading(false);
         } catch (error) {
             console.log(error)
-            setNewImages(false);
+            // setNewImages(false);
 
             setLoading(false);
         }
@@ -64,8 +64,8 @@ export const AppProvider = ({ children }) => {
             query,
             setQuery,
             loading,
-            newImages,
-            setNewImages,
+            // newImages,
+            // setNewImages,
             photos,
             setPhotos,
             setPage,
