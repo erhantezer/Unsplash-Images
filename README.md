@@ -210,12 +210,3 @@ export const AppProvider = ({ children }) => {
 }
 ```
 
-##
-```js
-
-```
-
-##
-```js
-
-```
