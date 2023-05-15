@@ -1,46 +1,43 @@
-
 import { FaSearch } from 'react-icons/fa';
 import { useGlobalContext } from './context';
 import { useEffect, useRef } from 'react';
 import Photo from './Photo';
-
-
 
 function App() {
   const {
     query,
     setQuery,
     loading,
-    newImages,
-    setNewImages,
+    // newImages,
+    // setNewImages,
     photos,
     setPhotos,
     setPage,
     page,
     fetchPhotos
   } = useGlobalContext()
-  const mounted = useRef(false);
+  // const mounted = useRef(false);
 
 
   useEffect(() => {
-    if (!mounted.current) {
-      mounted.current = true;
-      return;
-    }
+    // if (!mounted.current) {
+    //   mounted.current = true;
+    //   return;
+    // }
     setPage((oldPage) => oldPage + 1);
-  }, [newImages]);
-
-
-  const event = () => {
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
-      setNewImages(true);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', event);
-    return () => window.removeEventListener('scroll', event);
   }, []);
+
+
+  // const event = () => {
+  //   if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+  //     return
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', event);
+  //   return () => window.removeEventListener('scroll', event);
+  // }, []);
 
 
   const handleSubmit = (e) => {
@@ -51,6 +48,7 @@ function App() {
     }
     setPage(1);
   }
+
 
   if(loading) {
     return <div style={{textAlign:"center"}}>
